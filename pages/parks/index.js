@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { Button } from 'react-bootstrap';
 import { getParks } from '../../utils/data/parkData';
 import ParkCard from '../../components/park/ParkCard';
 
 export default function ParksHome() {
   const [parks, setParks] = useState([]);
+  const router = useRouter();
   const getAllParks = () => {
     getParks().then(setParks);
   };
@@ -13,9 +16,9 @@ export default function ParksHome() {
   }, []);
 
   return (
-    <div>
+    <>
       <div>
-        <button type="button">Add New Park</button>
+        <Button onClick={() => { router.push('/parks/new'); }}>Add New Park</Button>
       </div>
       <h2>View All Parks</h2>
       <div>
@@ -25,6 +28,6 @@ export default function ParksHome() {
           </section>
         ))}
       </div>
-    </div>
+    </>
   );
 }
