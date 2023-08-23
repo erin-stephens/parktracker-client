@@ -139,7 +139,7 @@ export default function TrailForm({ obj }) {
             </Form.Select>
           </FloatingLabel>
         </Form.Group>
-        <Button type="submit">Create Park</Button>
+        <Button type="submit">Create Trail</Button>
       </Form>
     </div>
   );
