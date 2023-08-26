@@ -49,10 +49,18 @@ const updateTrail = (trail) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getTrailByPark = (parkId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/trails?park=${parkId}`)
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getTrails,
   getSingleTrail,
   createTrail,
   updateTrail,
   deleteTrail,
+  getTrailByPark,
 };
