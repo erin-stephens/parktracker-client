@@ -59,9 +59,10 @@ const getFavoriteParks = (id) => new Promise((resolve, reject) => {
 const addFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/parks/${parkId}/favorite`, {
     method: 'POST',
-    body: JSON.stringify(uid),
+    body: JSON.stringify(),
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `${uid}`,
     },
   })
     .then((response) => response.json())
@@ -72,9 +73,10 @@ const addFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
 const removeFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/parks/${parkId}/unfavorite`, {
     method: 'DELETE',
-    body: JSON.stringify(uid),
+    body: JSON.stringify(),
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `${uid}`,
     },
   })
     .then((response) => response.json())
