@@ -49,10 +49,18 @@ const updateSite = (site) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getSiteByPark = (parkId) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/sites?park=${parkId}`)
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 export {
   getSites,
   getSingleSite,
   createSite,
   deleteSite,
   updateSite,
+  getSiteByPark,
 };
