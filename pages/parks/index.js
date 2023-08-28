@@ -3,12 +3,14 @@ import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
 import { getParks } from '../../utils/data/parkData';
 import ParkCard from '../../components/park/ParkCard';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ParksHome() {
   const [parks, setParks] = useState([]);
   const router = useRouter();
+  const { user } = useAuth();
   const getAllParks = () => {
-    getParks().then(setParks);
+    getParks(user.uid).then(setParks);
   };
 
   useEffect(() => {

@@ -1,7 +1,12 @@
 import { clientCredentials } from '../client';
 
-const getParks = () => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/parks`)
+const getParks = (uid) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/parks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `${uid}`,
+    },
+  })
     .then((response) => response.json())
     .then(resolve)
     .catch(reject);
@@ -79,8 +84,7 @@ const removeFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
       Authorization: `${uid}`,
     },
   })
-    .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then(resolve)
     .catch(reject);
 });
 
