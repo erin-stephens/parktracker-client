@@ -55,7 +55,7 @@ const updatePark = (park) => new Promise((resolve, reject) => {
 });
 
 const getFavoriteParks = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/parks/${id}/get_favorites`)
+  fetch(`${clientCredentials.databaseURL}/users/${id}/get_favorites`)
     .then((response) => response.json())
     .then(resolve)
     .catch(reject);
