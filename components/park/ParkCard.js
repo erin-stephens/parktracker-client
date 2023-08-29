@@ -1,13 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Dropdown } from 'react-bootstrap';
-import { deletePark } from '../../utils/data/parkData';
+import { Card, Dropdown, Button } from 'react-bootstrap';
+import { deletePark, addFavoritePark, removeFavoritePark } from '../../utils/data/parkData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function ParkCard({ parkObj, onUpdate }) {
+  const { user } = useAuth();
   const deleteThisPark = () => {
     if (window.confirm(`Delete ${parkObj.park_name}?`)) {
       deletePark(parkObj.id).then(() => onUpdate());
     }
+  };
+
+  const favorite = () => {
+    addFavoritePark(parkObj.id, user.uid).then(() => onUpdate());
+  };
+
+  const unfavorite = () => {
+    removeFavoritePark(parkObj.id, user.uid).then(() => onUpdate());
   };
   return (
     <div>
@@ -27,6 +37,7 @@ export default function ParkCard({ parkObj, onUpdate }) {
               <Dropdown.Item onClick={deleteThisPark}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          {parkObj.favorited ? <Button onClick={unfavorite}>Unfavorite</Button> : <Button onClick={favorite}>Favorite</Button>}
         </Card.Body>
       </Card>
     </div>
@@ -40,6 +51,7 @@ ParkCard.propTypes = {
     location: PropTypes.string,
     image_url: PropTypes.string,
     park_type: PropTypes.string,
+    favorited: PropTypes.bool,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

@@ -1,7 +1,12 @@
 import { clientCredentials } from '../client';
 
-const getParks = () => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/parks`)
+const getParks = (uid) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/parks`, {
+    method: 'GET',
+    headers: {
+      Authorization: `${uid}`,
+    },
+  })
     .then((response) => response.json())
     .then(resolve)
     .catch(reject);
@@ -50,7 +55,7 @@ const updatePark = (park) => new Promise((resolve, reject) => {
 });
 
 const getFavoriteParks = (id) => new Promise((resolve, reject) => {
-  fetch(`${clientCredentials.databaseURL}/parks/${id}/get_favorites`)
+  fetch(`${clientCredentials.databaseURL}/users/${id}/get_favorites`)
     .then((response) => response.json())
     .then(resolve)
     .catch(reject);
@@ -59,9 +64,10 @@ const getFavoriteParks = (id) => new Promise((resolve, reject) => {
 const addFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/parks/${parkId}/favorite`, {
     method: 'POST',
-    body: JSON.stringify(uid),
+    body: JSON.stringify(),
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `${uid}`,
     },
   })
     .then((response) => response.json())
@@ -72,13 +78,13 @@ const addFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
 const removeFavoritePark = (parkId, uid) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/parks/${parkId}/unfavorite`, {
     method: 'DELETE',
-    body: JSON.stringify(uid),
+    body: JSON.stringify(),
     headers: {
       'Content-Type': 'application/json',
+      Authorization: `${uid}`,
     },
   })
-    .then((response) => response.json())
-    .then((data) => resolve(data))
+    .then(resolve)
     .catch(reject);
 });
 
