@@ -1,44 +1,74 @@
-# React/Next.js Django Auth Template
+# ParkTracker
+This is the client side repo to the ParkTracker application. ParkTracker serves as a space to organize your past and future trips to National or State Parks by adding trails and sites you've seen along the way. This project came about when a few different friends asked me for recommendations on where to go in National Parks and I could not remember which trails I had hiked or sites I had seen. With ParkTracker, I can make a list that will organize all of this for future recommendations.
 
-## Topics
-- [Get Started](#getting-started)
-- [Starting the Project](#starting-the-project)
-___
-## Getting Started
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-<img width="915" alt="Screen Shot 2022-07-06 at 12 54 01 PM" src="https://user-images.githubusercontent.com/29741570/177612998-4aac9237-5a1e-4f13-8ae0-468587521564.png">
+## About the User
+- Ideal user for the application is anyone who is wanting to organize information for past or future trips to parks.
+- The user wants to create parks they have visited and add details about trails and sites while they were there.
+- The user wants look at parks created by others to get ideas of what they can do while visiting.
+- The user wants to favorite parks to keep lists of ideas they would like to return to.
+  
+## Features
+- Parks, Sites, and Trails can be added to each page via a form. These can be updated and deleted as well.
+- Users can only update and delete their own items. They can view all items.
+- Users can favorite parks.
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-<img width="763" alt="Screen Shot 2022-07-06 at 12 54 48 PM" src="https://user-images.githubusercontent.com/29741570/177613126-dd38f678-7553-4f27-8a4a-75680f14d71e.png">
+## Relevant Links
+- ERD [https://dbdiagram.io/d/64dab8d502bd1c4a5ec59e72]
+- Wireframe [https://www.figma.com/file/bNxkskrtgIgppSiWLXCgTu/Park-Tracker?type=design&node-id=0-1&mode=design&t=n3vmWdCc2NIJ41O7-0]
+- Project Board [https://github.com/users/erin-stephens/projects/8/views/1?layout=board]
 
-#### 3. Clone your new repo to your local machine
-#### 4. Go to the **NEXT** section
+## Code Snippet
+```
+export default function ParkForm({ obj }) {
+  const [currentPark, setCurrentPark] = useState(initialState);
+  const router = useRouter();
+  const { user } = useAuth();
 
-## Starting the Project
-1. Create a Firebase project and set up authentication. Use [these videos](https://vimeo.com/showcase/codetracker-firebase) as a refresher if needed.
-1. Create a `.env` file at the root of the project
-1. Copy/Paste the contents of the `.env.sample` file to your newly created `.env` file.
-1. Copy over all of your Firebase values into the `.env` file.
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. Next, run `npm run prepare`. This command sets up husky to track eslint errors on commit that will make your deploy fail on Netlify.
-1. To start your application, run `npm run dev`. THIS IS THE COMMAND YOU WILL USE TO RUN YOUR DEVELOPMENT SERVER FROM NOW ON.
-1. Open [http://localhost:3000](http://localhost:3000) with your browser.
+  useEffect(() => {
+    if (obj.id) {
+      setCurrentPark({
+        id: obj.id,
+        parkName: obj.park_name,
+        imageUrl: obj.image_url,
+        location: obj.location,
+        parkType: obj.park_type,
+      });
+    }
+  }, [obj, user]);
 
-### If you see this, you are set to go!
-<img width="450" alt="Screen Shot 2022-07-06 at 1 07 27 PM" src="https://user-images.githubusercontent.com/29741570/177615077-9b6a75bc-0260-4d29-bb88-bd95a3140687.png">
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCurrentPark((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-**NOTES:** 
-- If you see the following error, you did not follow all the setup steps correctly and failed to add your Firebase creds. Go back and do that NOW.
-
-<img width="1043" alt="Screen Shot 2022-07-06 at 11 18 45 AM" src="https://user-images.githubusercontent.com/29741570/177612501-c2628f18-4bbd-4de9-aae6-27ffba1172d6.png">
-        
-## Learn More about Next.js
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (obj.id) {
+      const parkUpdate = {
+        id: obj.id,
+        parkName: currentPark.parkName,
+        imageUrl: currentPark.imageUrl,
+        location: currentPark.location,
+        parkType: currentPark.parkType,
+        userId: user.uid,
+      };
+      updatePark(parkUpdate).then(() => router.push('/parks'));
+    } else {
+      const park = {
+        parkName: currentPark.parkName,
+        imageUrl: currentPark.imageUrl,
+        location: currentPark.location,
+        parkType: currentPark.parkType,
+        userId: user.uid,
+      };
+      createPark(park).then(() => router.push('/parks'));
+    }
+  };
+```
+## Project Screenshots
+<img width="250" alt="parks page" src="./src/assets/screenshots/viewparks.png"> <img width="250" alt="add park form" src="./src/assets/screenshots/addpark.png"> <img width="250" alt="trails page" src="./src/assets/screenshots/viewtrails.png"> <img width="250" alt="add trail form" src="./src/assets/screenshots/addtrail.png"> <img width="250" alt="sites page" src="./src/assets/screenshots/viewsites.png"> <img width="250" alt="add site form" src="./src/assets/screenshots/addsite.png"> <img width="250" alt="favorite parks" src="./src/assets/screenshots/favoritepark.png">
+## Contributors
+- [Erin Stephens](https://github.com/erin-stephens)
