@@ -21,7 +21,7 @@ export default function SiteForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getParks().then(setParks);
+    getParks(user.uid).then(setParks);
     if (obj.id) {
       setCurrentSite({
         id: obj.id,
