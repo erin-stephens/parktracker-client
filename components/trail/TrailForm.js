@@ -21,7 +21,7 @@ export default function TrailForm({ obj }) {
   const { user } = useAuth();
 
   useEffect(() => {
-    getParks().then(setParks);
+    getParks(user.uid).then(setParks);
     if (obj.id) {
       setCurrentTrail({
         id: obj.id,
