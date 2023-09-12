@@ -21,7 +21,7 @@ export default function SitesHome() {
         <Button onClick={() => { router.push('/sites/new'); }}>Add New Site</Button>
       </div>
       <h2>View All Sites</h2>
-      <div>
+      <div className="siteindex">
         {sites.map((site) => (
           <section key={`site--${site.id}`} className="sites">
             <SiteCard siteObj={site} onUpdate={getAllSites} />

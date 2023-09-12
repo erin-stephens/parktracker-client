@@ -1,6 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { signOut } from '../utils/auth';
 import { useAuth } from '../utils/context/authContext';
+import Logo from '../components/Logo';
 
 function Home() {
   const { user } = useAuth();
@@ -15,6 +16,7 @@ function Home() {
       }}
     >
       <h1>Hello {user.fbUser.displayName}! </h1>
+      <div> <Logo /> </div>
       <p>Your Bio: {user.bio}</p>
       <p>Click the button below to logout!</p>
       <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>

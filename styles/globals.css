@@ -18,5 +18,24 @@ a {
 }
 
 body {
-  background-color: lightgray;
+  background-color: #EAD2C5;
+}
+
+.parkindex, .siteindex, .trailindex {
+  display: flex;
+}
+
+.navbar {
+  background-color: #718968;
+}
+
+.logocontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  background-color: #C97064;
+  border-color: none;
 }
