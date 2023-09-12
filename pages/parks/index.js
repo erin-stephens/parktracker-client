@@ -23,7 +23,7 @@ export default function ParksHome() {
         <Button onClick={() => { router.push('/parks/new'); }}>Add New Park</Button>
       </div>
       <h2>View All Parks</h2>
-      <div>
+      <div className="parkindex">
         {parks.map((park) => (
           <section key={`park--${park.id}`} className="parks">
             <ParkCard parkObj={park} onUpdate={getAllParks} />

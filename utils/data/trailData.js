@@ -14,6 +14,13 @@ const getSingleTrail = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getCommentsByTrail = (id) => new Promise((resolve, reject) => {
+  fetch(`${clientCredentials.databaseURL}/trails/${id}/comments`)
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
+
 const createTrail = (trail) => new Promise((resolve, reject) => {
   fetch(`${clientCredentials.databaseURL}/trails`, {
     method: 'POST',
@@ -59,6 +66,7 @@ const getTrailByPark = (parkId) => new Promise((resolve, reject) => {
 export {
   getTrails,
   getSingleTrail,
+  getCommentsByTrail,
   createTrail,
   updateTrail,
   deleteTrail,
