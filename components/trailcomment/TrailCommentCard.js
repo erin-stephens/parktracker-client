@@ -3,11 +3,9 @@ import { useRouter } from 'next/router';
 import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { deleteTrailComment } from '../../utils/data/commentData';
-import { useAuth } from '../../utils/context/authContext';
 
 export default function TrailCommentCard({ commentObj, onUpdate }) {
   const router = useRouter();
-  const { user } = useAuth();
 
   const deleteThisComment = () => {
     if (window.confirm('Delete this comment?')) {
@@ -30,12 +28,10 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
                 <br />
                 <div className="btn-group">
                   <div>
-                    {commentObj.author_id.uid === user.uid ? (
-                      <Button type="button" className="m-2" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>) : ''}
+                    <Button type="button" className="m-2" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>
                   </div>
                   <div>
-                    {commentObj.author_id.uid === user.uid ? (
-                      <Button type="button" className="m-2" onClick={deleteThisComment}>Delete</Button>) : ''}
+                    <Button type="button" className="m-2" onClick={deleteThisComment}>Delete</Button>
                   </div>
                 </div>
               </footer>
@@ -43,7 +39,6 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
           </Card.Body>
         </div>
       </Card>
-
     </div>
   );
 }
