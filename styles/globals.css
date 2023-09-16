@@ -37,5 +37,16 @@ body {
 
 .btn {
   background-color: #C97064;
-  border-color: none;
+  border-color: transparent;
+  margin: 5px;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #718968;
+  border-color: transparent;
+}
+
+.btn:active {
+  background-color: #718968!;
+  border-color: transparent!;
 }
