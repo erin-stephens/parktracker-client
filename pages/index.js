@@ -1,28 +1,37 @@
-import { Button } from 'react-bootstrap';
-import { signOut } from '../utils/auth';
-import { useAuth } from '../utils/context/authContext';
-import Logo from '../components/Logo';
+import Header from '../components/Header';
 
 function Home() {
-  const { user } = useAuth();
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.fbUser.displayName}! </h1>
-      <div> <Logo /> </div>
-      <p>Your Bio: {user.bio}</p>
-      <p>Click the button below to logout!</p>
-      <Button variant="danger" type="button" size="lg" className="copy-btn" onClick={signOut}>
-        Sign Out
-      </Button>
-    </div>
+    <>
+      <div className="homeheader">
+        <div
+          className="header"
+          style={{
+            height: '160px',
+            width: '200px',
+          }}
+        >
+          <Header />
+        </div>
+      </div>
+      <div className="hometabs">
+        <div className="parkhome">
+          <h1>Parks</h1>
+          <div> park image</div>
+          <div> park info</div>
+        </div>
+        <div className="trailhome">
+          <h1>Trails</h1>
+          <div> trail image</div>
+          <div> trail info</div>
+        </div>
+        <div className="sitehome">
+          <h1>Sites</h1>
+          <div> site image</div>
+          <div> site info</div>
+        </div>
+      </div>
+    </>
   );
 }
 
