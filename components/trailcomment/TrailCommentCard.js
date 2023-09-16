@@ -12,6 +12,7 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
       deleteTrailComment(commentObj.id).then(() => onUpdate());
     }
   };
+  console.warn(commentObj);
   return (
     <div>
       <Card className="comment-card">
@@ -28,10 +29,10 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
                 <br />
                 <div className="btn-group">
                   <div>
-                    <Button type="button" className="m-2" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>
+                    <Button type="button" className="edit btn" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>
                   </div>
                   <div>
-                    <Button type="button" className="m-2" onClick={deleteThisComment}>Delete</Button>
+                    <Button type="button" className="delete btn" onClick={deleteThisComment}>Delete</Button>
                   </div>
                 </div>
               </footer>

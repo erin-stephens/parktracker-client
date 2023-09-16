@@ -44,7 +44,7 @@ export default function TrailDetailsPage() {
         ))}
       </div>
       <div>
-        <TrailCommentForm user={user} trailObj={trailDetails} />
+        <TrailCommentForm user={user} trailObj={trailDetails} onUpdate={getAllComments} />
       </div>
     </>
   );

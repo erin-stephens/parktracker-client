@@ -11,7 +11,7 @@ const initialState = {
   authorId: '',
 };
 
-export default function TrailCommentForm({ obj, trailObj }) {
+export default function TrailCommentForm({ obj, trailObj, onUpdate }) {
   const [currentComment, setCurrentComment] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
@@ -25,6 +25,7 @@ export default function TrailCommentForm({ obj, trailObj }) {
         trailId: obj.trail_id,
       });
     }
+    console.warn(trailObj);
   }, [obj]);
 
   const handleChange = (e) => {
@@ -41,17 +42,20 @@ export default function TrailCommentForm({ obj, trailObj }) {
       const commentUpdate = {
         id: obj.id,
         content: currentComment.content,
-        trailId: currentComment.trailId,
+        trailId: Number(obj.trail_id.id),
         authorId: user.id,
       };
-      updateTrailComment(commentUpdate).then(() => router.push(`/trails/${trailObj.id}`));
+      updateTrailComment(commentUpdate).then(() => router.push(`/trails/${obj.trail_id.id}`));
     } else {
       const comment = {
         content: currentComment.content,
         trailId: trailObj.id,
         authorId: user.id,
       };
-      createTrailComment(comment).then(() => router.push(`/trails/${trailObj.id}`));
+      createTrailComment(comment).then(() => {
+        onUpdate();
+        setCurrentComment(initialState);
+      });
     }
   };
 
@@ -76,7 +80,7 @@ export default function TrailCommentForm({ obj, trailObj }) {
             />
           </FloatingLabel>
         </Form.Group>
-        <Button variant="primary" type="submit">Submit</Button>
+        <Button variant="primary" type="submit" className=" btn commentBtn">Submit</Button>
       </Form>
     </>
   );
@@ -94,6 +98,7 @@ TrailCommentForm.propTypes = {
   trailObj: PropTypes.shape({
     id: PropTypes.number,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 TrailCommentForm.defaultProps = {
