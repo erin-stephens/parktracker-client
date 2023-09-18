@@ -73,7 +73,12 @@ body {
 .hometabs {
   margin: 10%;
 }
+
+.trailhome, .parkhome, .sitehome {
+  display: flex;
+}
+
 .trailhome {
-  text-align: right;
+  justify-content: flex-end;
   background-color: lightgray;
 }
