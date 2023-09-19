@@ -33,9 +33,10 @@ body {
   scroll-behavior: smooth;
 }
 
-.parkindex, .siteindex, .trailindex {
+.parkindex, .siteindex, .trailindex, .favoriteindex {
   display: flex;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .navbar {
@@ -91,4 +92,18 @@ body {
 
 .imagecontainer {
   margin: 10px;
+}
+
+.signoutbtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.parkCard {
+  background-color: whitesmoke;
+  margin: 10px;
+}
+
+.btngroup {
+  display: flex;
 }

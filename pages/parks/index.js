@@ -26,7 +26,7 @@ export default function ParksHome() {
       <div className="parkindex">
         {parks.map((park) => (
           <section key={`park--${park.id}`} className="parks">
-            <ParkCard parkObj={park} onUpdate={getAllParks} />
+            <ParkCard parkObj={park} onUpdate={getAllParks} className="parkcard" />
           </section>
         ))}
       </div>

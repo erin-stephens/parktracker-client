@@ -17,16 +17,18 @@ export default function TrailCard({ trailObj, onUpdate }) {
           <Card.Text>{trailObj.park_id.park_name}</Card.Text>
           <Card.Text>{trailObj.length}</Card.Text>
           <Card.Text>{trailObj.rating}</Card.Text>
-          <Dropdown>
-            <Dropdown.Toggle className="dropdownBtn">
-              Options
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item href={`/trails/${trailObj.id}`}>View Details</Dropdown.Item>
-              <Dropdown.Item href={`/trails/edit/${trailObj.id}`}>Edit</Dropdown.Item>
-              <Dropdown.Item onClick={deleteThisTrail}>Delete</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <div className="btngroup">
+            <Dropdown>
+              <Dropdown.Toggle className="dropdownBtn">
+                Options
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href={`/trails/${trailObj.id}`}>View Details</Dropdown.Item>
+                <Dropdown.Item href={`/trails/edit/${trailObj.id}`}>Edit</Dropdown.Item>
+                <Dropdown.Item onClick={deleteThisTrail}>Delete</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </Card.Body>
       </Card>
     </div>

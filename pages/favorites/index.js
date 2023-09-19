@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div>
       <h1>Favorited Parks</h1>
-      <div>
+      <div className="favoriteindex">
         {parks.map((park) => (
           <section key={`park--${park.id}`} className="parks">
             <FavoriteParkCard favoriteObj={park} onUpdate={getUserFavorites} />

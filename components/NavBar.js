@@ -47,9 +47,11 @@ export default function NavBar() {
             <Link passHref href="/favorites">
               <Nav.Link>Favorite Parks</Nav.Link>
             </Link>
-            <Button variant="danger" onClick={signOut}>
-              Sign Out
-            </Button>
+            <div className="signoutbtn">
+              <Button variant="danger" onClick={signOut}>
+                Sign Out
+              </Button>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Container>

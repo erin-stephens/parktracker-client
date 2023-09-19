@@ -17,16 +17,18 @@ export default function SiteCard({ siteObj, onUpdate }) {
           <Card.Title>{siteObj.site_name}</Card.Title>
           <Card.Text>{siteObj.park_id.park_name}</Card.Text>
           <Card.Text>{siteObj.site_type}</Card.Text>
-          <Dropdown>
-            <Dropdown.Toggle className="dropdownBtn">
-              Options
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item href={`/sites/${siteObj.id}`}>View Details</Dropdown.Item>
-              <Dropdown.Item href={`/sites/edit/${siteObj.id}`}>Edit</Dropdown.Item>
-              <Dropdown.Item onClick={deleteThisSite}>Delete</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
+          <div className="btngroup">
+            <Dropdown>
+              <Dropdown.Toggle className="dropdownBtn">
+                Options
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item href={`/sites/${siteObj.id}`}>View Details</Dropdown.Item>
+                <Dropdown.Item href={`/sites/edit/${siteObj.id}`}>Edit</Dropdown.Item>
+                <Dropdown.Item onClick={deleteThisSite}>Delete</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </Card.Body>
       </Card>
     </div>

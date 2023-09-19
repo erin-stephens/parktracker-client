@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { useRouter } from 'next/router';
 import { getSingleSite } from '../../utils/data/siteData';
 
@@ -13,6 +15,9 @@ export default function SiteDetailsPage() {
 
   return (
     <div>
+      <Link passHref href="/sites">
+        <Button>All Sites</Button>
+      </Link>
       <img src={siteDetails.image_url} alt={siteDetails.site_name} />
       <h2>Name: {siteDetails.site_name}</h2>
       <h4>Park: {siteDetails.park_id?.park_name}</h4>

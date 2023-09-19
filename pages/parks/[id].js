@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import { getSinglePark } from '../../utils/data/parkData';
 import { getSiteByPark } from '../../utils/data/siteData';
 import SiteCard from '../../components/site/SiteCard';
@@ -29,6 +31,9 @@ export default function ParkDetailsPage() {
 
   return (
     <>
+      <Link passHref href="/parks">
+        <Button>All Parks</Button>
+      </Link>
       <div>
         <img src={parkDetails.image_url} alt={parkDetails.park_name} />
         <h2>Name: {parkDetails.park_name}</h2>
