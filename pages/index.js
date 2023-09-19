@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import parkhome from '../src/assets/pics/parkhome.jpeg';
 import sitehome from '../src/assets/pics/sitehome.jpeg';
 import trailhome from '../src/assets/pics/trailhome.jpeg';
 import Header from '../components/Header';
+import { useAuth } from '../utils/context/authContext';
 
 function Home() {
+  const { user } = useAuth();
   return (
     <>
       <div className="homeheader">
@@ -20,6 +23,8 @@ function Home() {
         </div>
       </div>
       <div className="hometabs">
+        <h1> Welcome {user.first_name}! Ready to explore?</h1>
+        <hr />
         <div className="parkhome">
           <div
             style={{
@@ -32,9 +37,9 @@ function Home() {
           </div>
           <div className="textcontainer">
             <h1>Parks</h1>
-            <div> park info</div>
+            <div> Interested in finding out what parks other users have been too? Check out our list of National and State parks! </div>
             <Link passHref href="/parks">
-              <button type="button"> Go To Parks </button>
+              <Button className="btn"> Go To Parks </Button>
             </Link>
           </div>
         </div>
@@ -48,11 +53,11 @@ function Home() {
           >
             <Image src={sitehome} alt="siteimage" className="siteimage" />
           </div>
-          <div className="textcontainer">
+          <div className="trailtextcontainer">
             <h1>Trails</h1>
-            <div> trail info</div>
+            <div> Interested in finding out which trails are the best at each park? Check out our list of trails! </div>
             <Link passHref href="/trails">
-              <button type="button"> Go To Trails </button>
+              <Button className="btn"> Go To Trails </Button>
             </Link>
           </div>
         </div>
@@ -68,9 +73,9 @@ function Home() {
           </div>
           <div className="textcontainer">
             <h1>Sites</h1>
-            <div> site info</div>
+            <div> Interested to find out where others visited while in the parks? Check out our list of sites! </div>
             <Link passHref href="/sites">
-              <button type="button"> Go To Sites </button>
+              <Button className="btn"> Go To Sites </Button>
             </Link>
           </div>
         </div>

@@ -35,6 +35,7 @@ body {
 
 .parkindex, .siteindex, .trailindex {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .navbar {
@@ -80,5 +81,14 @@ body {
 
 .trailhome {
   justify-content: flex-end;
+  flex-direction: row-reverse;
   background-color: lightgray;
+}
+
+.trailtextcontainer {
+  text-align: right;
+}
+
+.imagecontainer {
+  margin: 10px;
 }
