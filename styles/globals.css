@@ -107,3 +107,14 @@ body {
 .btngroup {
   display: flex;
 }
+
+.footer {
+  background-color: #718968;
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.indexheader {
+  margin: 20px;
+}

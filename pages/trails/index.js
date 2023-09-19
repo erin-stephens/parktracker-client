@@ -17,16 +17,18 @@ export default function TrailsHome() {
 
   return (
     <>
-      <div>
-        <Button onClick={() => { router.push('/trails/new'); }}>Add New Trail</Button>
+      <div className="indexheader">
+        <h2>View All Trails</h2>
       </div>
-      <h2>View All Trails</h2>
       <div className="trailindex">
         {trails.map((trail) => (
           <section key={`trail--${trail.id}`} className="trails">
             <TrailCard trailObj={trail} onUpdate={getAllTrails} />
           </section>
         ))}
+      </div>
+      <div className="footer">
+        <Button onClick={() => { router.push('/trails/new'); }}>Add New Trail</Button>
       </div>
     </>
   );
