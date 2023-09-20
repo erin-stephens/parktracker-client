@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { Button } from 'react-bootstrap';
 import TrailCommentCard from '../../components/trailcomment/TrailCommentCard';
 import { useAuth } from '../../utils/context/authContext';
 import { getSingleTrail, getCommentsByTrail } from '../../utils/data/trailData';
@@ -26,6 +28,9 @@ export default function TrailDetailsPage() {
   return (
     <>
       <div>
+        <Link passHref href="/trails">
+          <Button>All Trails</Button>
+        </Link>
         <h2>Name: {trailDetails.trail_name}</h2>
         <h4>Park: {trailDetails.park_id?.park_name}</h4>
         <h4>Length: {trailDetails.length}</h4>

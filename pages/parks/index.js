@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { Button } from 'react-bootstrap';
 import { getParks } from '../../utils/data/parkData';
 import ParkCard from '../../components/park/ParkCard';
@@ -19,16 +20,23 @@ export default function ParksHome() {
 
   return (
     <>
-      <div>
-        <Button onClick={() => { router.push('/parks/new'); }}>Add New Park</Button>
+      <Head>
+        <title>All Parks</title>
+      </Head>
+      <div className="wrapper">
+        <div className="indexheader">
+          <h2>View All Parks</h2>
+        </div>
+        <div className="parkindex">
+          {parks.map((park) => (
+            <section key={`park--${park.id}`} className="parks">
+              <ParkCard parkObj={park} onUpdate={getAllParks} className="parkcard" />
+            </section>
+          ))}
+        </div>
       </div>
-      <h2>View All Parks</h2>
-      <div className="parkindex">
-        {parks.map((park) => (
-          <section key={`park--${park.id}`} className="parks">
-            <ParkCard parkObj={park} onUpdate={getAllParks} />
-          </section>
-        ))}
+      <div className="footer">
+        <Button onClick={() => { router.push('/parks/new'); }}>Add New Park</Button>
       </div>
     </>
   );

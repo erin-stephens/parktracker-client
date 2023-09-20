@@ -6,7 +6,7 @@ export default function CreateTrailPage() {
   const { user } = useAuth();
   return (
     <div>
-      <h1>Add a New Trail</h1>
+      <h1 className="addnew">Add a New Trail</h1>
       <TrailForm user={user} />
     </div>
   );

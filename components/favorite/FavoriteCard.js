@@ -5,8 +5,8 @@ import { Card, Dropdown } from 'react-bootstrap';
 export default function FavoriteParkCard({ favoriteObj }) {
   return (
     <div>
-      <Card style={{ width: '18rem' }} className="parkCard">
-        <Card.Img variant="top" src={favoriteObj.park.image_url} />
+      <Card style={{ width: '18rem' }} className="parkCard border-0">
+        <Card.Img style={{ width: '18rem', height: '18rem' }} variant="top" src={favoriteObj.park.image_url} />
         <Card.Body>
           <Card.Title>{favoriteObj.park.park_name}</Card.Title>
           <Card.Text>{favoriteObj.park.location}</Card.Text>

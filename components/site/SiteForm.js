@@ -68,10 +68,10 @@ export default function SiteForm({ obj }) {
     }
   };
   return (
-    <div>
+    <div className="siteform">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <FloatingLabel controlId="floatingInput1" label="Site name" className="mb-3">
+          <FloatingLabel controlId="floatingInput1" label="Enter site name" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter site name"
@@ -83,7 +83,7 @@ export default function SiteForm({ obj }) {
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput2"
-            label="Image Url"
+            label="Enter site image url"
             className="mb-3"
           >
             <Form.Control
@@ -95,7 +95,7 @@ export default function SiteForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput3" label="Description" className="mb-3">
+          <FloatingLabel controlId="floatingInput3" label="Enter site description" className="mb-3">
             <Form.Control
               type="textarea"
               placeholder="Enter site description"
@@ -113,7 +113,7 @@ export default function SiteForm({ obj }) {
               value={currentSite.siteType}
               required
             >
-              <option value="">Choose a site type</option>
+              <option value="">Choose an attraction type</option>
               <option value="overlook">overlook</option>
               <option value="water feature">water feature</option>
               <option value="rock formation">rock formation</option>
@@ -129,7 +129,7 @@ export default function SiteForm({ obj }) {
               value={currentSite.parkId}
               required
             >
-              <option value="">Select a Park</option>
+              <option value="">Select a park</option>
               {parks.map((park) => (
                 <option
                   key={park.id}
@@ -141,7 +141,7 @@ export default function SiteForm({ obj }) {
             </Form.Select>
           </FloatingLabel>
         </Form.Group>
-        <Button type="submit">Create Site</Button>
+        <Button type="submit">{obj.id ? 'Update' : 'Create'} Site</Button>
       </Form>
     </div>
   );
