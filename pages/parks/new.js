@@ -6,7 +6,7 @@ export default function CreateParkPage() {
   const { user } = useAuth();
   return (
     <div>
-      <h1>Add a New Park</h1>
+      <h1 className="addnew">Add a New Park</h1>
       <ParkForm user={user} />
     </div>
   );

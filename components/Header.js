@@ -2,10 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import header from '../src/assets/logo/header.png';
 
-export default function Logo() {
+export default function Header() {
   return (
     <>
-      <Image src={header} alt="header" className="header" />
+      <div className="header">
+        <Image src={header} alt="header image" className="headerimage" />
+      </div>
     </>
   );
 }

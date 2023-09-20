@@ -61,10 +61,10 @@ export default function ParkForm({ obj }) {
     }
   };
   return (
-    <div>
+    <div className="parkform">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <FloatingLabel controlId="floatingInput1" label="parkName" className="mb-3">
+          <FloatingLabel controlId="floatingInput1" label="Enter park name" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter park name"
@@ -74,7 +74,7 @@ export default function ParkForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput2" label="imageUrl" className="mb-3">
+          <FloatingLabel controlId="floatingInput2" label="Enter image" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter image"
@@ -84,7 +84,7 @@ export default function ParkForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput3" label="location" className="mb-3">
+          <FloatingLabel controlId="floatingInput3" label="Enter park location (state)" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter park location (state)"
@@ -94,7 +94,7 @@ export default function ParkForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel label="parkType">
+          <FloatingLabel label="Park Type">
             <Form.Select
               name="parkType"
               onChange={handleChange}
@@ -103,12 +103,12 @@ export default function ParkForm({ obj }) {
               required
             >
               <option value="">Choose a park type</option>
-              <option value="state">State Park</option>
-              <option value="national">National Park</option>
+              <option value="State">State Park</option>
+              <option value="National">National Park</option>
             </Form.Select>
           </FloatingLabel>
         </Form.Group>
-        <Button type="submit">Create Park</Button>
+        <Button type="submit">{obj.id ? 'Update' : 'Create'} Park</Button>
       </Form>
     </div>
   );

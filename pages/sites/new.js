@@ -6,7 +6,7 @@ export default function CreateSitePage() {
   const { user } = useAuth();
   return (
     <div>
-      <h1>Add a New Site</h1>
+      <h1 className="addnew">Add a New Attraction</h1>
       <SiteForm user={user} />
     </div>
   );

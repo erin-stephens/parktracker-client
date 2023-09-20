@@ -68,10 +68,10 @@ export default function TrailForm({ obj }) {
     }
   };
   return (
-    <div>
+    <div className="trailform">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <FloatingLabel controlId="floatingInput1" label="Trail name" className="mb-3">
+          <FloatingLabel controlId="floatingInput1" label="Enter trail name" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter trail name"
@@ -83,7 +83,7 @@ export default function TrailForm({ obj }) {
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput2"
-            label="Trail length"
+            label="Enter trail length (in miles)"
             className="mb-3"
           >
             <Form.Control
@@ -95,7 +95,7 @@ export default function TrailForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput3" label="Description" className="mb-3">
+          <FloatingLabel controlId="floatingInput3" label="Enter trail description" className="mb-3">
             <Form.Control
               type="textarea"
               placeholder="Enter trail description"
@@ -127,7 +127,7 @@ export default function TrailForm({ obj }) {
               value={currentTrail.parkId}
               required
             >
-              <option value="">Select a Park</option>
+              <option value="">Select a park</option>
               {parks.map((park) => (
                 <option
                   key={park.id}
@@ -139,7 +139,7 @@ export default function TrailForm({ obj }) {
             </Form.Select>
           </FloatingLabel>
         </Form.Group>
-        <Button type="submit">Create Trail</Button>
+        <Button type="submit">{obj.id ? 'Update' : 'Create'} Trail</Button>
       </Form>
     </div>
   );

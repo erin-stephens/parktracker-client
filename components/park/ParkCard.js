@@ -33,8 +33,12 @@ export default function ParkCard({ parkObj, onUpdate }) {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href={`/parks/${parkObj.id}`}>View Details</Dropdown.Item>
-                <Dropdown.Item href={`/parks/edit/${parkObj.id}`}>Edit</Dropdown.Item>
-                <Dropdown.Item onClick={deleteThisPark}>Delete</Dropdown.Item>
+                {parkObj.user.uid === user.uid ? (
+                  <Dropdown.Item href={`/parks/edit/${parkObj.id}`}>Edit</Dropdown.Item>
+                ) : ''}
+                {parkObj.user.uid === user.uid ? (
+                  <Dropdown.Item onClick={deleteThisPark}>Delete</Dropdown.Item>
+                ) : ''}
               </Dropdown.Menu>
             </Dropdown>
             {parkObj.favorited ? <Button onClick={unfavorite}>Unfavorite</Button> : <Button onClick={favorite}>Favorite</Button>}
@@ -53,6 +57,9 @@ ParkCard.propTypes = {
     image_url: PropTypes.string,
     park_type: PropTypes.string,
     favorited: PropTypes.bool,
+    user: PropTypes.shape({
+      uid: PropTypes.string,
+    }),
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

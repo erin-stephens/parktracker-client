@@ -1,11 +1,11 @@
 @import 'bootstrap/dist/css/bootstrap.css';
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 a {
@@ -41,6 +41,8 @@ body {
 
 .navbar {
   background-color: #718968;
+  display: flex;
+  width: 100%;
 }
 
 .logocontainer {
@@ -67,10 +69,18 @@ body {
 
 .homeheader {
   background-color: #718968;
-  height: 200px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.logoname {
+  color: whitesmoke;
+  padding-left: 18px;
+  padding-bottom: 15px;
+  font-size: 50px;
 }
 .hometabs {
   margin: 10%;
@@ -83,20 +93,25 @@ body {
 .trailhome {
   justify-content: flex-end;
   flex-direction: row-reverse;
-  background-color: lightgray;
+  align-content: flex-start;
 }
 
 .trailtextcontainer {
   text-align: right;
+  flex-wrap: wrap;
 }
 
 .imagecontainer {
   margin: 10px;
 }
 
+.siteimagecontainer {
+  margin: 10px;
+}
+
 .signoutbtn {
-  display: flex;
   justify-content: flex-end;
+  align-items: end;
 }
 
 .parkCard {
@@ -104,17 +119,33 @@ body {
   margin: 10px;
 }
 
+
 .btngroup {
   display: flex;
 }
 
+.trailbody {
+  margin: 0;
+  padding: 0;
+}
+
 .footer {
   background-color: #718968;
-  padding: 50px;
+  padding: 75px;
   display: flex;
   justify-content: center;
+  bottom: 0;
+  width: 100%;
+}
+
+.wrapper {
+  flex: 1;
 }
 
 .indexheader {
   margin: 20px;
+}
+
+.parkform, .trailform, .siteform, .addnew, .profilepic {
+  margin: 15px;
 }

@@ -13,7 +13,6 @@ function Home() {
     <>
       <div className="homeheader">
         <div
-          className="header"
           style={{
             height: '200px',
             width: '200px',
@@ -21,9 +20,12 @@ function Home() {
         >
           <Header />
         </div>
+        <div>
+          <h1 className="logoname">Park Tracker</h1>
+        </div>
       </div>
       <div className="hometabs">
-        <h1> Welcome {user.first_name}! Ready to explore?</h1>
+        <h1> Welcome {user.first_name}! Ready to Explore?</h1>
         <hr />
         <div className="parkhome">
           <div
@@ -49,9 +51,9 @@ function Home() {
               height: '200px',
               width: '200px',
             }}
-            className="imagecontainer"
+            className="siteimagecontainer"
           >
-            <Image src={sitehome} alt="siteimage" className="siteimage" />
+            <Image src={trailhome} alt="trailimage" className="trailimage" />
           </div>
           <div className="trailtextcontainer">
             <h1>Trails</h1>
@@ -64,18 +66,18 @@ function Home() {
         <div className="sitehome">
           <div
             style={{
-              height: '160px',
+              height: '200px',
               width: '200px',
             }}
             className="imagecontainer"
           >
-            <Image src={trailhome} alt="trailimage" className="trailimage" />
+            <Image src={sitehome} alt="siteimage" className="siteimage" />
           </div>
           <div className="textcontainer">
-            <h1>Sites</h1>
-            <div> Interested to find out where others visited while in the parks? Check out our list of sites! </div>
+            <h1>Attractions</h1>
+            <div> Interested to find out where others visited while in the parks? Check out our list of attractions! </div>
             <Link passHref href="/sites">
-              <Button className="btn"> Go To Sites </Button>
+              <Button className="btn"> Go To Attractions </Button>
             </Link>
           </div>
         </div>

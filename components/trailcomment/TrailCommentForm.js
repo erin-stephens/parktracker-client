@@ -80,7 +80,7 @@ export default function TrailCommentForm({ obj, trailObj, onUpdate }) {
             />
           </FloatingLabel>
         </Form.Group>
-        <Button variant="primary" type="submit" className=" btn commentBtn">Submit</Button>
+        <Button type="submit" className=" btn commentBtn">Submit</Button>
       </Form>
     </>
   );

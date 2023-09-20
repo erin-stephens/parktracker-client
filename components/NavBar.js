@@ -5,10 +5,9 @@ import {
   Navbar, //
   Container,
   Nav,
-  Button,
 } from 'react-bootstrap';
-import { signOut } from '../utils/auth';
 import Logo from './Logo';
+import UserProfile from './UserProfile';
 
 export default function NavBar() {
   return (
@@ -42,15 +41,13 @@ export default function NavBar() {
               <Nav.Link>Trails</Nav.Link>
             </Link>
             <Link passHref href="/sites">
-              <Nav.Link>Sites</Nav.Link>
+              <Nav.Link>Attractions</Nav.Link>
             </Link>
             <Link passHref href="/favorites">
-              <Nav.Link>Favorite Parks</Nav.Link>
+              <Nav.Link>My Favorites</Nav.Link>
             </Link>
-            <div className="signoutbtn">
-              <Button variant="danger" onClick={signOut}>
-                Sign Out
-              </Button>
+            <div className="userprofilecontainer">
+              <UserProfile />
             </div>
           </Nav>
         </Navbar.Collapse>
