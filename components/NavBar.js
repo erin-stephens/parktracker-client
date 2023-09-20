@@ -46,11 +46,11 @@ export default function NavBar() {
             <Link passHref href="/favorites">
               <Nav.Link>My Favorites</Nav.Link>
             </Link>
-            <div className="userprofilecontainer">
-              <UserProfile />
-            </div>
           </Nav>
         </Navbar.Collapse>
+        <div className="userprofilecontainer">
+          <UserProfile />
+        </div>
       </Container>
     </Navbar>
   );

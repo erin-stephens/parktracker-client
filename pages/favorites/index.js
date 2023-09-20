@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { getFavoriteParks } from '../../utils/data/parkData';
@@ -21,6 +22,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Favorite Parks</title>
+      </Head>
       <div>
         <div className="indexheader">
           <h1>Favorited Parks</h1>

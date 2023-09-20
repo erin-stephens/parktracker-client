@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import Head from 'next/head';
 import { Button } from 'react-bootstrap';
 import { getSinglePark } from '../../utils/data/parkData';
 import { getSiteByPark } from '../../utils/data/siteData';
@@ -31,6 +32,9 @@ export default function ParkDetailsPage() {
 
   return (
     <>
+      <Head>
+        <title>{parkDetails.park_name} {parkDetails.park_type} Park</title>
+      </Head>
       <Link passHref href="/parks">
         <Button>All Parks</Button>
       </Link>
@@ -49,7 +53,7 @@ export default function ParkDetailsPage() {
         ))}
       </div>
       <div>
-        <h1>Park Sites</h1>
+        <h1>Park Attractions</h1>
         {sites.map((site) => (
           <section key={`site--${site.id}`} className="sites">
             <SiteCard siteObj={site} onUpdate={getSites} />
