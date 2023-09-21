@@ -35,30 +35,50 @@ export default function ParkDetailsPage() {
       <Head>
         <title>{parkDetails.park_name} {parkDetails.park_type} Park</title>
       </Head>
-      <Link passHref href="/parks">
-        <Button>All Parks</Button>
-      </Link>
-      <div>
-        <img src={parkDetails.image_url} alt={parkDetails.park_name} />
-        <h2>Name: {parkDetails.park_name}</h2>
-        <h4>Location: {parkDetails.location}</h4>
-        <h4>Park Type: {parkDetails.park_type}</h4>
-      </div>
-      <div>
-        <h1>Park Trails</h1>
-        {trails.map((trail) => (
-          <section key={`trail--${trail.id}`} className="trails">
-            <TrailCard trailObj={trail} onUpdate={getTrails} />
-          </section>
-        ))}
-      </div>
-      <div>
-        <h1>Park Attractions</h1>
-        {sites.map((site) => (
-          <section key={`site--${site.id}`} className="sites">
-            <SiteCard siteObj={site} onUpdate={getSites} />
-          </section>
-        ))}
+      <div className="parkdeets">
+        <Link passHref href="/parks">
+          <Button>All Parks</Button>
+        </Link>
+        <div className="parkdetails">
+          <div>
+            <img
+              src={parkDetails.image_url}
+              alt={parkDetails.park_name}
+              style={{
+                height: '400px',
+                width: '500px',
+              }}
+            />
+          </div>
+          <div className="parkdetailtext">
+            <h2>{parkDetails.park_name} {parkDetails.park_type} Park</h2>
+            <h4>Location: {parkDetails.location}</h4>
+          </div>
+        </div>
+        <div>
+          <h1 className="parkh1">Park Trails</h1>
+          <div className="parktrails">
+            {trails.length === 0 ? (<Button onClick={() => { router.push('/trails/new'); }}>Add Trail</Button>) : (
+              trails.map((trail) => (
+                <section key={`trail--${trail.id}`} className="trails">
+                  <TrailCard trailObj={trail} onUpdate={getTrails} />
+                </section>
+              ))
+            )}
+          </div>
+        </div>
+        <div>
+          <h1 className="parkh1">Park Attractions</h1>
+          <div className="parksites">
+            {sites.length === 0 ? (<Button onClick={() => { router.push('/sites/new'); }}>Add Attraction</Button>) : (
+              sites.map((site) => (
+                <section key={`site--${site.id}`} className="sites">
+                  <SiteCard siteObj={site} onUpdate={getSites} />
+                </section>
+              ))
+            )}
+          </div>
+        </div>
       </div>
     </>
   );

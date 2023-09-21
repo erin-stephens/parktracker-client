@@ -43,7 +43,7 @@ function Home() {
             </div>
             <div className="textcontainer">
               <h1>Parks</h1>
-              <div> Interested in finding out what parks other users have been too? Check out our list of National and State parks! </div>
+              <div> <h5>Interested in finding out what parks other users have been to? Check out our list of National and State parks! </h5></div>
               <Link passHref href="/parks">
                 <Button className="btn"> Go To Parks </Button>
               </Link>
@@ -61,7 +61,7 @@ function Home() {
             </div>
             <div className="trailtextcontainer">
               <h1>Trails</h1>
-              <div> Interested in finding out which trails are the best at each park? Check out our list of trails! </div>
+              <div> <h5>Interested in finding out which trails are the best at each park? Check out our list of trails! </h5></div>
               <Link passHref href="/trails">
                 <Button className="btn"> Go To Trails </Button>
               </Link>
@@ -79,7 +79,7 @@ function Home() {
             </div>
             <div className="textcontainer">
               <h1>Attractions</h1>
-              <div> Interested to find out where others visited while in the parks? Check out our list of attractions! </div>
+              <div> <h5>Interested to find out where others visited while in the parks? Check out our list of attractions! </h5></div>
               <Link passHref href="/sites">
                 <Button className="btn"> Go To Attractions </Button>
               </Link>

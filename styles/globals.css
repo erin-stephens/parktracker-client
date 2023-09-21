@@ -33,10 +33,11 @@ body {
   scroll-behavior: smooth;
 }
 
-.parkindex, .siteindex, .trailindex, .favoriteindex {
+.parkindex, .siteindex, .trailindex, .favoriteindex, .parktrails, .parksites {
   display: flex;
   flex-wrap: wrap;
   margin: 10px;
+  justify-content: center;
 }
 
 .navbar {
@@ -163,6 +164,10 @@ body {
 
 .indexheader {
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .parkform, .trailform, .siteform, .addnew, .profilepic {
@@ -171,4 +176,47 @@ body {
 
 .trailcardtext {
   background-color: whitesmoke;
+}
+
+.parkdetails {
+  display: flex;
+  margin: 10px;
+  justify-content: center;
+}
+
+.parktrails, .parksites {
+  justify-content: center;
+}
+
+.parkdeets {
+  margin-left: 10px;;
+}
+
+.parkdetailtext {
+  margin: 20px;
+}
+
+.parkh1 {
+  text-align: center;
+}
+
+.siteid {
+  display: flex;
+  margin: 20px;
+}
+
+.sitetext {
+  margin-left: 30px;
+}
+
+.sitedeetbtn, .traildeetbtn {
+  margin: 20px;
+}
+
+.trailcommentform, .trailcomments, .trailinfo {
+  margin: 20px;
+}
+
+.comment {
+  margin: 10px;
 }

@@ -71,7 +71,7 @@ export default function SiteForm({ obj }) {
     <div className="siteform">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
-          <FloatingLabel controlId="floatingInput1" label="Enter site name" className="mb-3">
+          <FloatingLabel controlId="floatingInput1" label="Enter attraction name" className="mb-3">
             <Form.Control
               type="text"
               placeholder="Enter site name"
@@ -83,7 +83,7 @@ export default function SiteForm({ obj }) {
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput2"
-            label="Enter site image url"
+            label="Enter attraction image url"
             className="mb-3"
           >
             <Form.Control
@@ -95,7 +95,7 @@ export default function SiteForm({ obj }) {
               required
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingInput3" label="Enter site description" className="mb-3">
+          <FloatingLabel controlId="floatingInput3" label="Enter attraction description" className="mb-3">
             <Form.Control
               type="textarea"
               placeholder="Enter site description"
@@ -141,7 +141,7 @@ export default function SiteForm({ obj }) {
             </Form.Select>
           </FloatingLabel>
         </Form.Group>
-        <Button type="submit">{obj.id ? 'Update' : 'Create'} Site</Button>
+        <Button type="submit">{obj.id ? 'Update' : 'Create'} Attraction</Button>
       </Form>
     </div>
   );
