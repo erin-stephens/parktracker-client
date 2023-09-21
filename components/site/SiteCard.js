@@ -14,7 +14,7 @@ export default function SiteCard({ siteObj, onUpdate }) {
   return (
     <div>
       <Card style={{ width: '18rem' }} className="siteCard">
-        <Card.Img variant="top" style={{ width: '18rem', height: '14rem' }} src={siteObj.image_url} />
+        <Card.Img variant="top" style={{ width: '17.9rem', height: '14rem' }} src={siteObj.image_url} />
         <Card.Body>
           <Card.Title>{siteObj.site_name}</Card.Title>
           <Card.Text>{siteObj.park_id.park_name}</Card.Text>

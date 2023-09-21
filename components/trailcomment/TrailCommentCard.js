@@ -3,10 +3,11 @@ import { useRouter } from 'next/router';
 import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { deleteTrailComment } from '../../utils/data/commentData';
+import { useAuth } from '../../utils/context/authContext';
 
 export default function TrailCommentCard({ commentObj, onUpdate }) {
   const router = useRouter();
-
+  const { user } = useAuth();
   const deleteThisComment = () => {
     if (window.confirm('Delete this comment?')) {
       deleteTrailComment(commentObj.id).then(() => onUpdate());
@@ -15,7 +16,7 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
   console.warn(commentObj);
   return (
     <div>
-      <Card className="comment-card">
+      <Card style={{ width: '40rem' }} className="comment-card">
         <div className="commentContainer">
           <Card.Body>
             <blockquote className="blockquote mb-0">
@@ -29,10 +30,14 @@ export default function TrailCommentCard({ commentObj, onUpdate }) {
                 <br />
                 <div className="btn-group">
                   <div>
-                    <Button type="button" className="edit btn" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>
+                    {commentObj.author_id.uid === user.uid ? (
+                      <Button type="button" className="edit btn" onClick={() => router.push(`/comments/edit/${commentObj.id}`)}>Edit</Button>
+                    ) : ''}
                   </div>
                   <div>
-                    <Button type="button" className="delete btn" onClick={deleteThisComment}>Delete</Button>
+                    {commentObj.author_id.uid === user.uid ? (
+                      <Button type="button" className="delete btn" onClick={deleteThisComment}>Delete</Button>
+                    ) : ''}
                   </div>
                 </div>
               </footer>

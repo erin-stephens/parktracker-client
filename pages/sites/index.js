@@ -23,7 +23,7 @@ export default function SitesHome() {
       </Head>
       <div className="wrapper">
         <div className="indexheader">
-          <h2>View All Attractions</h2>
+          <h1>View All Attractions</h1>
         </div>
 
         <div className="siteindex">

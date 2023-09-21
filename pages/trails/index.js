@@ -24,7 +24,7 @@ export default function TrailsHome() {
       <div className="trailbody">
         <div className="wrapper">
           <div className="indexheader">
-            <h2>View All Trails</h2>
+            <h1>View All Trails</h1>
           </div>
           <div className="trailindex">
             {trails.map((trail) => (

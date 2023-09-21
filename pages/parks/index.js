@@ -25,7 +25,7 @@ export default function ParksHome() {
       </Head>
       <div className="wrapper">
         <div className="indexheader">
-          <h2>View All Parks</h2>
+          <h1>View All Parks</h1>
         </div>
         <div className="parkindex">
           {parks.map((park) => (
