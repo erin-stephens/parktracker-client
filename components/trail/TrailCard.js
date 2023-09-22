@@ -27,7 +27,8 @@ export default function TrailCard({ trailObj, onUpdate }) {
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href={`/trails/${trailObj.id}`}>View Details</Dropdown.Item>
-                {trailObj.user.uid === user.uid ? (<Dropdown.Item href={`/trails/edit/${trailObj.id}`}>Edit</Dropdown.Item>) : ''}
+                {trailObj.user.uid === user.uid ? (
+                  <Dropdown.Item href={`/trails/edit/${trailObj.id}`}>Edit</Dropdown.Item>) : ''}
                 {trailObj.user.uid === user.uid ? (
                   <Dropdown.Item onClick={deleteThisTrail}>Delete</Dropdown.Item>
                 ) : ''}

@@ -13,7 +13,7 @@ export default function SiteCard({ siteObj, onUpdate }) {
   };
   return (
     <div>
-      <Card style={{ width: '18rem' }} className="siteCard">
+      <Card style={{ width: '18rem', height: '28rem' }} className="siteCard">
         <Card.Img variant="top" style={{ width: '17.9rem', height: '14rem' }} src={siteObj.image_url} />
         <Card.Body>
           <Card.Title>{siteObj.site_name}</Card.Title>
@@ -27,8 +27,7 @@ export default function SiteCard({ siteObj, onUpdate }) {
               <Dropdown.Menu>
                 <Dropdown.Item href={`/sites/${siteObj.id}`}>View Details</Dropdown.Item>
                 {siteObj.user.uid === user.uid ? (
-                  <Dropdown.Item href={`/sites/edit/${siteObj.id}`}>Edit</Dropdown.Item>
-                ) : ''}
+                  <Dropdown.Item href={`/sites/edit/${siteObj.id}`}>Edit</Dropdown.Item>) : ''}
                 {siteObj.user.uid === user.uid ? (
                   <Dropdown.Item onClick={deleteThisSite}>Delete</Dropdown.Item>
                 ) : ''}

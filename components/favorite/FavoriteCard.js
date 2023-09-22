@@ -8,9 +8,8 @@ export default function FavoriteParkCard({ favoriteObj }) {
       <Card style={{ width: '18rem' }} className="parkCard border-0">
         <Card.Img style={{ width: '18rem', height: '18rem' }} variant="top" src={favoriteObj.park.image_url} />
         <Card.Body>
-          <Card.Title>{favoriteObj.park.park_name}</Card.Title>
+          <Card.Title>{favoriteObj.park.park_name} {favoriteObj.park.park_type} Park</Card.Title>
           <Card.Text>{favoriteObj.park.location}</Card.Text>
-          <Card.Text>{favoriteObj.park.park_type}</Card.Text>
           <Dropdown>
             <Dropdown.Toggle className="dropdownBtn">
               Options
