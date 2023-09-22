@@ -21,8 +21,8 @@ export default function ParkCard({ parkObj, onUpdate }) {
   };
   return (
     <div>
-      <Card style={{ width: '18rem' }} className="parkCard border-0">
-        <Card.Img style={{ width: '18rem', height: '18rem' }} variant="top" src={parkObj.image_url} />
+      <Card style={{ width: '20rem' }} className="parkCard border-0">
+        <Card.Img style={{ width: '20rem', height: '18rem' }} variant="top" src={parkObj.image_url} />
         <Card.Body>
           <Card.Title>{parkObj.park_name} {parkObj.park_type} Park</Card.Title>
           <Card.Text>{parkObj.location}</Card.Text>
