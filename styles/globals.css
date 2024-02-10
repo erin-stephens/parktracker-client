@@ -174,6 +174,11 @@ body {
   margin: 15px;
 }
 
+.parkform, .trailform, .siteform, .commentform {
+  max-width: 50%;
+  min-width: 600px;
+}
+
 .trailcardtext {
   background-color: whitesmoke;
 }
