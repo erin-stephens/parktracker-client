@@ -60,7 +60,7 @@ export default function TrailCommentForm({ obj, trailObj, onUpdate }) {
   };
 
   return (
-    <>
+    <div className="commentform">
       <h2> Add a Comment </h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
@@ -82,7 +82,7 @@ export default function TrailCommentForm({ obj, trailObj, onUpdate }) {
         </Form.Group>
         <Button type="submit" className=" btn commentBtn">Submit</Button>
       </Form>
-    </>
+    </div>
   );
 }
 
